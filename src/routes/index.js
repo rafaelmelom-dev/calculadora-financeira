@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
   const theme = req.cookies.theme || 'light';
 
-  res.render("home/index", { title: "Calculadora Financeira", theme });
+  res.render("home/index.ejs", { title: "Calculadora Financeira", theme });
 });
 
 router.use("/juros", juros);
