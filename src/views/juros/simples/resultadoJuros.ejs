@@ -1,0 +1,23 @@
+<hr />
+<p>
+  <% if (dados?.meta?.status === 'success') { %>
+  <% if (dados?.response?.target != 'taxa' && dados?.response?.target != 'tempo') {%>
+  <%= `Resultado: R$${dados.response.result.toFixed(2)}` %>
+  <% } else if (dados?.response?.target == 'taxa') { %>
+  <%= `Resultado: ${(dados.response.result * 100).toFixed(2)}% a${dados.response.period.charAt(0)}` %>
+  <% } else if (dados?.response?.target == 'tempo') { %>
+  <%= `Resultado: ${(dados.response.result)} ${dados.response.period}(s)` %>
+  <% } %>
+  <% } else if (dados?.meta?.status == 'erro') { %>
+  <%= dados?.meta?.message %>
+  <% } else { %>
+  Escolha sua saída, entre com os valores e clique em calcular
+  <% } %>
+</p>
+<div>
+  <% if (dados?.response?.formula) { %>
+  <p class="alert alert-primary">Fórmula utilizada:
+    <span class="fs-4"><%= dados.response.formula %></span>
+  </p>
+  <% } %>
+</div>

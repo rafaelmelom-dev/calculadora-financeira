@@ -1,0 +1,17 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css");
+
+.centered-card {
+    max-width: 600px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.item {
+    padding-bottom: 0.5rem;
+}
+
+.item > select {
+    margin-left: 0.5rem;
+}

@@ -1,0 +1,19 @@
+<hr />
+<p>
+  <% if (dados?.meta?.status === 'success') { %>
+  <% if (dados?.response?.result) {%>
+  <%= `Resultado: ${(dados.response.result).toFixed(2)}%` %>
+  <% } %>
+  <% } else if (dados?.meta?.status == 'erro') { %>
+  <%= dados?.meta?.message %>
+  <% } else { %>
+  Entre com o tempo e uma das taxas para realizar a conversão
+  <% } %>
+</p>
+<div>
+  <% if (dados?.response?.formula) { %>
+  <p class="alert alert-primary">Fórmula utilizada:
+    <span class="fs-4"><%= dados.response.formula %></span>
+  </p>
+  <% } %>
+</div>

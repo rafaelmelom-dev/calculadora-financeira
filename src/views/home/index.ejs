@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-br" data-bs-theme="<%=theme%>">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora Financeira</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="bg-<%=theme%>">
+  <h1><%= title %></h1>
+  <p>Escolha uma das seguintes opções</p>
+
+  <ul>
+    <li><a href="/juros/simples/">Capitalização Simples</a></li>
+    <li>
+      <a href="/juros/compostos/"> Capitalização Composta</a>
+    </li>
+    <li><a href="amortizacao/">Amortização e VPL</a></li>
+  </ul>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+
+</html>
