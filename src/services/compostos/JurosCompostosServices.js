@@ -44,6 +44,9 @@ const JurosCompostosService = {
             return ResponseFactory.createJurosBadResponse('INVALID_INPUT', 'Valores insuficientes!', 'Verifique os campos e os preencha com mais valores!');
         } else if (juros) {
             const resultado = capital + juros;
+            console.log(resultado);
+            console.log(capital);
+            console.log(juros);
             const formula = "\\( M = C + J \\)";
             return ResponseFactory.createJurosResponse({ capital, juros }, resultado, formula, target, metodo);
         } else if (taxa && tempo) {

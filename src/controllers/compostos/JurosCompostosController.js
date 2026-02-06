@@ -9,7 +9,13 @@ const JurosCompostosController = {
     }, 
 
     calcular: (req, res) => {
-        const {montante, capital, juros, taxa, tempo, target, tempoFreq, taxaFreq} = req.body;
+        let {montante, capital, juros, taxa, tempo, target, tempoFreq, taxaFreq} = req.body;
+
+        montante = parseFloat(montante);
+        capital = parseFloat(capital);
+        juros = parseFloat(juros);
+        taxa = parseFloat(taxa);
+        tempo = parseFloat(tempo);
 
         if (!target) {
             res.render('juros/compostos/resultadoJuros', {dados: null});
