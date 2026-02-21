@@ -1,0 +1,57 @@
+<hr />
+<p>
+  <% if (dados?.meta?.status === 'success') { %>
+
+
+
+
+
+      <h3 class="mt-4">Detalhes da Amortização</h3>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered mt-3">
+          <thead>
+            <tr>
+              <th scope="col">Mês</th>
+              <th scope="col">Saldo Devedor</th>
+              <th scope="col">Amortização</th>
+              <th scope="col">Juros</th>
+              <th scope="col">PMT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%
+              lastElementIndex = dados.response.result.pmt.length - 1;
+              for (let i = 0; i < dados.response.result.pmt.length -1; i++) {
+                const saldoDevedor = dados.response.result.saldoDevedor[i];
+                const amortizacao = dados.response.result.amortizacao[i];
+                const juros = dados.response.result.juros[i];
+                const pmt = dados.response.result.pmt[i];
+            %>
+            <tr>
+              <td><%= i %></td>
+              <td><%= saldoDevedor.toFixed(2) %></td>
+              <td><%= amortizacao.toFixed(2) %></td>
+              <td><%= juros.toFixed(2) %></td>
+              <td><%= pmt.toFixed(2) %></td>
+            </tr>
+            <% } %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td><strong>Total</strong></td>
+              <td></td> <!-- Saldo Devedor não tem total nessa tabela -->
+              <td><strong><%= dados.response.result.amortizacao[lastElementIndex].toFixed(2) %></strong></td>
+              <td><strong><%= dados.response.result.juros[lastElementIndex].toFixed(2) %></strong></td>
+              <td><strong><%= dados.response.result.pmt[lastElementIndex].toFixed(2) %></strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+
+  <% } else if (dados?.meta?.status == 'erro') { %>
+  <%= dados?.meta?.message %>
+  <% } else { %>
+  Escolha sua saída, entre com os valores e clique em calcular
+  <% } %>
+</p>

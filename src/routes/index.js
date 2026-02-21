@@ -1,5 +1,6 @@
 import express from "express";
 import juros from "./juros.js";
+import investimento from "./investimento.js";
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -9,5 +10,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/juros", juros);
+router.use("/investimento", investimento);
 
 export default router;

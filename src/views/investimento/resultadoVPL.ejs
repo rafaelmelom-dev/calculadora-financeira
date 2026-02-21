@@ -1,0 +1,14 @@
+<hr />
+<p>
+  <% if (dados?.meta?.status == 'success') { %>
+
+    <p>
+    VPL = <%= dados.response.result.toFixed(2) %>
+    </p>
+
+  <% } else if (dados?.meta?.status == 'erro') { %>
+  <%= dados?.meta?.message %>
+  <% } else { %>
+  Entre com os valores e clique em calcular
+  <% } %>
+</p>
