@@ -12,11 +12,12 @@ const InvestimentoController = {
         res.render("investimento/index", { dados: null, theme, periods });
     },
     calcularAmortizacao: (req, res) => {
-        let { financiamento, taxa, tempo, target, tempoFreq, taxaFreq } = req.body;
+        let { financiamento, taxa, tempo, target, tempoFreq, taxaFreq, carencia } = req.body;
 
         financiamento = parseFloat(financiamento);
         taxa = parseFloat(taxa);
         tempo = parseFloat(tempo);
+        carencia = parseFloat(carencia);
 
         taxa /= 100;
 
@@ -37,16 +38,18 @@ const InvestimentoController = {
                         financiamento,
                         taxa,
                         tempo,
+                        carencia
                     );
                     break;
                 case "saf":
-                    dados = SistemaAmortizacaoFrancesService(financiamento, taxa, tempo);
+                    dados = SistemaAmortizacaoFrancesService(financiamento, taxa, tempo, carencia);
                     break;
                 case "saa":
                     dados = SistemaAmortizacaoAmericanoService(
                         financiamento,
                         taxa,
                         tempo,
+                        carencia
                     );
                     break;
                 default:

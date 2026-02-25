@@ -14,7 +14,7 @@ function VPLService(investimento, taxaVpl, valorResidual, tempoValorResidual, fl
     if (fluxo) {
         fluxo.forEach((element, index) => {
             element = parseFloat(element);
-            if (!element) throw new Error("Missing values");
+            if (isNaN(element)) throw new Error("Missing values");
             vpl += (element / Math.pow(1 + taxaVpl, index + 1));
         })
     }

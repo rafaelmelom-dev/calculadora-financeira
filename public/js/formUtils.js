@@ -99,6 +99,7 @@ const formAmortInputs = {
   financiamento: createFormItem("financiamento", "Financiamento:"),
   taxa: createFormItemWithSubselect("taxa", "Taxa:", rateReference),
   tempo: createFormItemWithSubselect("tempo", "Tempo:", timeReference),
+    carencia: createFormItem("carencia", "Carência: ")
 };
 
 document.addEventListener("DOMContentLoaded", () => {
